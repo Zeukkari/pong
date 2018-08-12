@@ -5,6 +5,8 @@ key.UP = 38;
 key.DOWN = 40;
 key.W = 87;
 key.S = 83;
+key.ENTER = 13;
+key.BACKSPACE = 8;
 
 key.isDown = function(keyCode) {
   return _pressed[keyCode];

@@ -3,17 +3,17 @@ var stats;
 
 if (!PRODUCTION) {
   stats = require('stats.js')(0);
-  document.body.appendChild(stats.dom);
+  // document.body.appendChild(stats.dom);
 }
 
-function timestamp () {
-  return window.performance && window.performance.now ?
-    window.performance.now() :
-    Date.now();
+function timestamp() {
+  return window.performance && window.performance.now
+    ? window.performance.now()
+    : Date.now();
 }
 
-function raf (fn) {
-  return window.requestAnimationFrame(function () {
+function raf(fn) {
+  return window.requestAnimationFrame(function() {
     stats && stats.begin();
 
     var now = timestamp();
@@ -33,8 +33,8 @@ function raf (fn) {
   });
 }
 
-exports.start = function (fn) {
-  return raf(function tick (dt) {
+exports.start = function(fn) {
+  return raf(function tick(dt) {
     fn(dt);
     raf(tick);
   });
